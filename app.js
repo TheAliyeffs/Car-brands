@@ -103,10 +103,10 @@ const cars = [
 
 
 
-// Unikal markaları çıxarır
+
 const uniqueBrands = Array.from(new Set(cars.map(car => car.brand)));
 
-// Düymələri əlavə edir
+
 const buttonContainer = document.querySelector(".button-container");
 uniqueBrands.forEach(brand => {
     const button = document.createElement("button");
@@ -115,16 +115,16 @@ uniqueBrands.forEach(brand => {
     buttonContainer.appendChild(button);
 });
 
-// Bütün maşınları göstərəcəyi düymə
+
 const allButton = document.createElement("button");
 allButton.innerText = "All";
 allButton.addEventListener("click", () => filterCars("All"));
 buttonContainer.prepend(allButton);
 
-// Maşın məlumatlarını göstərir
+
 const gridContainer = document.querySelector(".grid-container");
 function displayCars(filteredCars) {
-    gridContainer.innerHTML = ""; // Mövcud qutuları təmizləyir
+    gridContainer.innerHTML = ""; 
     filteredCars.forEach(car => {
         const carBox = document.createElement("div");
         carBox.className = "car-box";
@@ -138,7 +138,7 @@ function displayCars(filteredCars) {
     });
 }
 
-// Filtr funksiyası
+
 function filterCars(brand) {
     const buttons = document.querySelectorAll("button");
     buttons.forEach(button => button.classList.remove("active"));
@@ -146,7 +146,7 @@ function filterCars(brand) {
     if (clickedButton) clickedButton.classList.add("active");
 
     if (brand === "All") {
-        displayCars(cars); // Bütün maşınları göstərir
+        displayCars(cars); 
     } else {
         const filteredCars = cars.filter(car => car.brand === brand);
         displayCars(filteredCars);
